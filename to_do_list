@@ -1,0 +1,52 @@
+import java.util.HashMap;
+
+class Main{
+    int i=0;
+    HashMap<Integer,String>map=new HashMap<>();
+    void list(){
+        System.out.println("list");
+        for(HashMap.Entry<Integer,String> entry :  map.entrySet()){
+            System.out.println("task: " + entry.getKey()+"   "+entry.getValue());
+
+        }
+        System.out.println("_________________________________");
+
+
+    }
+    void add(String name){
+
+
+        map.put(i++,name);
+        System.out.println("added");
+
+    }
+    void remove(String name){
+        for(HashMap.Entry<Integer,String> entry :  map.entrySet()){
+            if(entry.getValue().equals(name)){
+                map.remove(entry.getKey());
+                return;
+            }
+        }
+        System.out.println("not found !");
+
+
+    }
+    void options(){
+        System.out.println("1.add");
+        System.out.println("2.remove");
+        System.out.println("3.list");
+        System.out.println("4.exit");
+    }
+
+    public static void main(String[] args) {
+        Main m=new Main();
+        m.add("breakfast");
+        m.add("reading");
+        m.list();
+        m.add("lunch");
+        m.remove("write");
+        m.remove("breakfast");
+        m.list();
+
+    }
+}
